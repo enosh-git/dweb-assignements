@@ -3,7 +3,7 @@
 // Cone Types
 $coneTypes = array("Chocolate cone", "Sugar cone", "Wafer Cone", "Waffle cone");
 $conePrices = array(5, 3, 2, 4);
-$coneInventory = array(10, 10, 10, 10);
+$coneInventory = array(0, 10, 10, 10);
 
 // Toppings
 $toppings = array("Chopped nuts", "Fudge", "Salted Caramel", "Sprinkles");
@@ -43,22 +43,46 @@ $flavorInventory = array(10, 10, 10, 10);
 
       <tr>
         <th><?= $coneTypes[0] ?></th>
-        <th>$<?= $conePrices[0] ?></th>
+        <th><?php 
+        if ($coneInventory[0] != 0) {
+          echo "$" . $conePrices[0];
+        } else {
+          echo "Not available";
+        } 
+        ?></th>
       </tr>
 
       <tr>
         <th><?= $coneTypes[1] ?></th>
-        <th>$<?= $conePrices[1] ?></th>
+        <th><?php 
+        if ($coneInventory[1] != 0) {
+          echo "$" . $conePrices[1];
+        } else {
+          echo "Not available";
+        } 
+        ?></th>
       </tr>
 
       <tr>
         <th><?= $coneTypes[2] ?></th>
-        <th>$<?= $conePrices[2] ?></th>
+        <th><?php 
+        if ($coneInventory[2] != 0) {
+          echo "$" . $conePrices[2];
+        } else {
+          echo "Not available";
+        } 
+        ?></th>
       </tr>
 
       <tr>
         <th><?= $coneTypes[3] ?></th>
-        <th>$<?= $conePrices[3] ?></th>
+        <th><?php 
+        if ($coneInventory[3] != 0) {
+          echo "$" . $conePrices[3];
+        } else {
+          echo "Not available";
+        } 
+        ?></th>
       </tr>
     </table>
 
@@ -72,22 +96,46 @@ $flavorInventory = array(10, 10, 10, 10);
 
       <tr>
         <th><?= $flavors[0] ?></th>
-        <th>$<?= $flavorPrice ?></th>
+        <th><?php 
+        if ($flavorInventory[0] != 0) {
+          echo "$" . $flavorPrice;
+        } else {
+          echo "Not available";
+        } 
+        ?></th>
       </tr>
 
       <tr>
         <th><?= $flavors[1] ?></th>
-        <th>$<?= $flavorPrice ?></th>
+        <th><?php 
+        if ($flavorInventory[1] != 0) {
+          echo "$" . $flavorPrice;
+        } else {
+          echo "Not available";
+        } 
+        ?></th>
       </tr>
 
       <tr>
         <th><?= $flavors[2] ?></th>
-        <th>$<?= $flavorPrice ?></th>
+        <th><?php 
+        if ($flavorInventory[2] != 0) {
+          echo "$" . $flavorPrice;
+        } else {
+          echo "Not available";
+        } 
+        ?></th>
       </tr>
 
       <tr>
         <th><?= $flavors[3] ?></th>
-        <th>$<?= $flavorPrice ?></th>
+        <th><?php 
+        if ($flavorInventory[3] != 0) {
+          echo "$" . $flavorPrice;
+        } else {
+          echo "Not available";
+        } 
+        ?></th>
       </tr>
     </table>
 
@@ -101,22 +149,46 @@ $flavorInventory = array(10, 10, 10, 10);
 
       <tr>
         <th><?= $toppings[0] ?></th>
-        <th>$<?= $toppingsPrice[0] ?></th>
+        <th><?php 
+        if ($toppingsInventory[0] != 0) {
+          echo "$" . $toppingsPrice[0];
+        } else {
+          echo "Not available";
+        } 
+        ?></th>
       </tr>
 
       <tr>
         <th><?= $toppings[1] ?></th>
-        <th>$<?= $toppingsPrice[1] ?></th>
+        <th><?php 
+        if ($toppingsInventory[1] != 0) {
+          echo "$" . $toppingsPrice[1];
+        } else {
+          echo "Not available";
+        } 
+        ?></th>
       </tr>
 
       <tr>
         <th><?= $toppings[2] ?></th>
-        <th>$<?= $toppingsPrice[2] ?></th>
+        <th><?php 
+        if ($toppingsInventory[2] != 0) {
+          echo "$" . $toppingsPrice[2];
+        } else {
+          echo "Not available";
+        } 
+        ?></th>
       </tr>
 
       <tr>
         <th><?= $toppings[3] ?></th>
-        <th>$<?= $toppingsPrice[3] ?></th>
+        <th><?php 
+        if ($toppingsInventory[3] != 0) {
+          echo "$" . $toppingsPrice[3];
+        } else {
+          echo "Not available";
+        } 
+        ?></th>
       </tr>
     </table>
   </main>
