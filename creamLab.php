@@ -8,12 +8,12 @@ $coneInventory = array(0, 10, 10, 10);
 // Toppings
 $toppings = array("Chopped nuts", "Fudge", "Salted Caramel", "Sprinkles");
 $toppingsPrice = array(5, 6, 4, 2);
-$toppingsInventory = array(10, 10, 10 ,10);
+$toppingsInventory = array(10, 10, 0 ,10);
 
 // Ice cream flavors
 $flavors = array("Vanilla", "Chocolate", "Strawberry", "Chocolate Chip");
 $flavorPrice = 3;
-$flavorInventory = array(10, 10, 10, 10);
+$flavorInventory = array(10, 10, 10, 0);
 
 ?>
 
@@ -63,49 +63,19 @@ $flavorInventory = array(10, 10, 10, 10);
         <th>Price</th>
       </tr>
 
-      <tr>
-        <th><?= $flavors[0] ?></th>
-        <th><?php 
-        if ($flavorInventory[0] != 0) {
-          echo "$" . $flavorPrice;
-        } else {
-          echo "Not available";
-        } 
-        ?></th>
-      </tr>
+      <?php for ($i = 0; $i < count($flavors); $i++) { ?>
+        <tr>
+          <th> <?= $flavors[$i] ?></th>
+          <th>
+          <?php if ($flavorInventory[$i] != 0) {
+            echo "$" . $flavorPrice;
+          } else {
+            echo "Not available";
+          } ?>
+          </th>
+        </tr>
+      <?php } ?>
 
-      <tr>
-        <th><?= $flavors[1] ?></th>
-        <th><?php 
-        if ($flavorInventory[1] != 0) {
-          echo "$" . $flavorPrice;
-        } else {
-          echo "Not available";
-        } 
-        ?></th>
-      </tr>
-
-      <tr>
-        <th><?= $flavors[2] ?></th>
-        <th><?php 
-        if ($flavorInventory[2] != 0) {
-          echo "$" . $flavorPrice;
-        } else {
-          echo "Not available";
-        } 
-        ?></th>
-      </tr>
-
-      <tr>
-        <th><?= $flavors[3] ?></th>
-        <th><?php 
-        if ($flavorInventory[3] != 0) {
-          echo "$" . $flavorPrice;
-        } else {
-          echo "Not available";
-        } 
-        ?></th>
-      </tr>
     </table>
 
     <!-- Table for toppings -->
@@ -116,49 +86,19 @@ $flavorInventory = array(10, 10, 10, 10);
         <th>Price</th>
       </tr>
 
-      <tr>
-        <th><?= $toppings[0] ?></th>
-        <th><?php 
-        if ($toppingsInventory[0] != 0) {
-          echo "$" . $toppingsPrice[0];
-        } else {
-          echo "Not available";
-        } 
-        ?></th>
-      </tr>
+      <?php for ($i = 0; $i < count($toppings); $i++) { ?>
+        <tr>
+          <th> <?= $toppings[$i] ?></th>
+          <th>
+          <?php if ($toppingsInventory[$i] != 0) {
+            echo "$" . $toppingsPrice[$i];
+          } else {
+            echo "Not available";
+          } ?>
+          </th>
+        </tr>
+      <?php } ?>
 
-      <tr>
-        <th><?= $toppings[1] ?></th>
-        <th><?php 
-        if ($toppingsInventory[1] != 0) {
-          echo "$" . $toppingsPrice[1];
-        } else {
-          echo "Not available";
-        } 
-        ?></th>
-      </tr>
-
-      <tr>
-        <th><?= $toppings[2] ?></th>
-        <th><?php 
-        if ($toppingsInventory[2] != 0) {
-          echo "$" . $toppingsPrice[2];
-        } else {
-          echo "Not available";
-        } 
-        ?></th>
-      </tr>
-
-      <tr>
-        <th><?= $toppings[3] ?></th>
-        <th><?php 
-        if ($toppingsInventory[3] != 0) {
-          echo "$" . $toppingsPrice[3];
-        } else {
-          echo "Not available";
-        } 
-        ?></th>
-      </tr>
     </table>
   </main>
 </body>
