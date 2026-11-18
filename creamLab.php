@@ -41,49 +41,18 @@ $flavorInventory = array(10, 10, 10, 10);
         <th>Price</th>
       </tr>
 
-      <tr>
-        <th><?= $coneTypes[0] ?></th>
-        <th><?php 
-        if ($coneInventory[0] != 0) {
-          echo "$" . $conePrices[0];
-        } else {
-          echo "Not available";
-        } 
-        ?></th>
-      </tr>
-
-      <tr>
-        <th><?= $coneTypes[1] ?></th>
-        <th><?php 
-        if ($coneInventory[1] != 0) {
-          echo "$" . $conePrices[1];
-        } else {
-          echo "Not available";
-        } 
-        ?></th>
-      </tr>
-
-      <tr>
-        <th><?= $coneTypes[2] ?></th>
-        <th><?php 
-        if ($coneInventory[2] != 0) {
-          echo "$" . $conePrices[2];
-        } else {
-          echo "Not available";
-        } 
-        ?></th>
-      </tr>
-
-      <tr>
-        <th><?= $coneTypes[3] ?></th>
-        <th><?php 
-        if ($coneInventory[3] != 0) {
-          echo "$" . $conePrices[3];
-        } else {
-          echo "Not available";
-        } 
-        ?></th>
-      </tr>
+      <?php for ($i = 0; $i < count($coneTypes); $i++) { ?>
+        <tr>
+          <th> <?= $coneTypes[$i] ?></th>
+          <th>
+          <?php if ($coneInventory[$i] != 0) {
+            echo "$" . $conePrices[$i];
+          } else {
+            echo "Not available";
+          } ?>
+          </th>
+        </tr>
+      <?php } ?>
     </table>
 
     <!-- Table for flavors -->
