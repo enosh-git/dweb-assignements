@@ -3,14 +3,17 @@
 // Cone Types
 $coneTypes = array("Chocolate cone", "Sugar cone", "Wafer Cone", "Waffle cone");
 $conePrices = array(5, 3, 2, 4);
+$coneInventory = array(10, 10, 10, 10);
 
 // Toppings
 $toppings = array("Chopped nuts", "Fudge", "Salted Caramel", "Sprinkles");
 $toppingsPrice = array(5, 6, 4, 2);
+$toppingsInventory = array(10, 10, 10 ,10);
 
 // Ice cream flavors
 $flavors = array("Vanilla", "Chocolate", "Strawberry", "Chocolate Chip");
 $flavorPrice = 3;
+$flavorInventory = array(10, 10, 10, 10);
 
 ?>
 
