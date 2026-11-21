@@ -1,19 +1,33 @@
 <?php 
+declare(strict_types=1);
 
-// Cone Types
-$coneTypes = array("Chocolate cone", "Sugar cone", "Wafer Cone", "Waffle cone");
-$conePrices = array(5, 3, 2, 4);
-$coneInventory = array(0, 10, 10, 10);
+$products = [
+  // cone types
+  "Chocolate Cone" => ["price" => 30, "stock" => 10],
+  "Waffle Cone" => ["price" => 30, "stock" => 10],
 
-// Toppings
-$toppings = array("Chopped nuts", "Fudge", "Salted Caramel", "Sprinkles");
-$toppingsPrice = array(5, 6, 4, 2);
-$toppingsInventory = array(10, 10, 0 ,10);
+  //toppings
+  "Chopped Nuts" => ["price" => 15, "stock" => 10],
+  "Fudge" => ["price" => 15, "stock" => 5],
 
-// Ice cream flavors
-$flavors = array("Vanilla", "Chocolate", "Strawberry", "Chocolate Chip");
-$flavorPrice = 3;
-$flavorInventory = array(10, 10, 10, 0);
+  // Ice cream flavors
+  "Chocolate" => ["price" => 30, "stock" => 10],
+  "Vanilla" => ["price" => 30, "stock" => 8],
+];
+
+$tax_rate = 12;
+
+function get_reorder_message(int $stock):string {
+  return ($stock < 10) ? "Yes" : "No";
+}
+
+function get_total_value(float $price, int $quantity):float {
+  return $price * $quantity;
+}
+
+function get_tax_due(float $price, int $quantity, int $tax_rate = 0):float {
+  return ($price * $quantity) * ($tax_rate / 100);
+}
 
 ?>
 
@@ -32,73 +46,25 @@ $flavorInventory = array(10, 10, 10, 0);
   </header>
 
   <main>
-
-    <!-- Table for cone type -->
-     <h3>Cones</h3>
+    <h3>Stock Control</h3>
     <table>
       <tr>
-        <th>Cone Type</th>
-        <th>Price</th>
+        <th>Product</th>
+        <th>Stock</th>
+        <th>Re-order</th>
+        <th>Total Value</th>
+        <th>Tax Due</th>
       </tr>
-
-      <?php for ($i = 0; $i < count($coneTypes); $i++) { ?>
+  
+      <?php foreach ($products as $product_name => $data) {?>
         <tr>
-          <th> <?= $coneTypes[$i] ?></th>
-          <th>
-          <?php if ($coneInventory[$i] != 0) {
-            echo "$" . $conePrices[$i];
-          } else {
-            echo "Not available";
-          } ?>
-          </th>
+          <td><?= $product_name ?></td>
+          <td><?= $data["stock"] ?></td>
+          <td><?= get_reorder_message($data["stock"])?></td>
+          <td>₱<?= number_format(get_total_value($data["price"], $data["stock"]), 2) ?></td>
+          <td>₱<?= number_format(get_tax_due($data["price"], $data["stock"], $tax_rate), 2) ?></td>
         </tr>
-      <?php } ?>
-    </table>
-
-    <!-- Table for flavors -->
-     <h3>Flavors</h3>
-    <table>
-      <tr>
-        <th>Flavor</th>
-        <th>Price</th>
-      </tr>
-
-      <?php for ($i = 0; $i < count($flavors); $i++) { ?>
-        <tr>
-          <th> <?= $flavors[$i] ?></th>
-          <th>
-          <?php if ($flavorInventory[$i] != 0) {
-            echo "$" . $flavorPrice;
-          } else {
-            echo "Not available";
-          } ?>
-          </th>
-        </tr>
-      <?php } ?>
-
-    </table>
-
-    <!-- Table for toppings -->
-     <h3>Toppings</h3>
-    <table>
-      <tr>
-        <th>Topping</th>
-        <th>Price</th>
-      </tr>
-
-      <?php for ($i = 0; $i < count($toppings); $i++) { ?>
-        <tr>
-          <th> <?= $toppings[$i] ?></th>
-          <th>
-          <?php if ($toppingsInventory[$i] != 0) {
-            echo "$" . $toppingsPrice[$i];
-          } else {
-            echo "Not available";
-          } ?>
-          </th>
-        </tr>
-      <?php } ?>
-
+      <?php }?>
     </table>
   </main>
 </body>
